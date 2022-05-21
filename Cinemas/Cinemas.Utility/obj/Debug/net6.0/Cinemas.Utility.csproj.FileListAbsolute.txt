@@ -1,0 +1,12 @@
+D:\tfg_net\Cinemas\Cinemas.Utility\bin\Debug\net6.0\Cinemas.Utility.deps.json
+D:\tfg_net\Cinemas\Cinemas.Utility\bin\Debug\net6.0\Cinemas.Utility.dll
+D:\tfg_net\Cinemas\Cinemas.Utility\bin\Debug\net6.0\Cinemas.Utility.pdb
+D:\tfg_net\Cinemas\Cinemas.Utility\obj\Debug\net6.0\Cinemas.Utility.csproj.AssemblyReference.cache
+D:\tfg_net\Cinemas\Cinemas.Utility\obj\Debug\net6.0\Cinemas.Utility.GeneratedMSBuildEditorConfig.editorconfig
+D:\tfg_net\Cinemas\Cinemas.Utility\obj\Debug\net6.0\Cinemas.Utility.AssemblyInfoInputs.cache
+D:\tfg_net\Cinemas\Cinemas.Utility\obj\Debug\net6.0\Cinemas.Utility.AssemblyInfo.cs
+D:\tfg_net\Cinemas\Cinemas.Utility\obj\Debug\net6.0\Cinemas.Utility.csproj.CoreCompileInputs.cache
+D:\tfg_net\Cinemas\Cinemas.Utility\obj\Debug\net6.0\Cinemas.Utility.dll
+D:\tfg_net\Cinemas\Cinemas.Utility\obj\Debug\net6.0\refint\Cinemas.Utility.dll
+D:\tfg_net\Cinemas\Cinemas.Utility\obj\Debug\net6.0\Cinemas.Utility.pdb
+D:\tfg_net\Cinemas\Cinemas.Utility\obj\Debug\net6.0\ref\Cinemas.Utility.dll

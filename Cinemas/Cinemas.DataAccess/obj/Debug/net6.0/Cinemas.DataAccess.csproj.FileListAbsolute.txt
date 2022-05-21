@@ -1,0 +1,17 @@
+D:\tfg_net\Cinemas\Cinemas.DataAccess\obj\Debug\net6.0\Cinemas.DataAccess.csproj.AssemblyReference.cache
+D:\tfg_net\Cinemas\Cinemas.DataAccess\obj\Debug\net6.0\Cinemas.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\tfg_net\Cinemas\Cinemas.DataAccess\obj\Debug\net6.0\Cinemas.DataAccess.AssemblyInfoInputs.cache
+D:\tfg_net\Cinemas\Cinemas.DataAccess\obj\Debug\net6.0\Cinemas.DataAccess.AssemblyInfo.cs
+D:\tfg_net\Cinemas\Cinemas.DataAccess\obj\Debug\net6.0\Cinemas.DataAccess.csproj.CoreCompileInputs.cache
+D:\tfg_net\Cinemas\Cinemas.DataAccess\bin\Debug\net6.0\Cinemas.DataAccess.deps.json
+D:\tfg_net\Cinemas\Cinemas.DataAccess\bin\Debug\net6.0\Cinemas.DataAccess.runtimeconfig.json
+D:\tfg_net\Cinemas\Cinemas.DataAccess\bin\Debug\net6.0\Cinemas.DataAccess.dll
+D:\tfg_net\Cinemas\Cinemas.DataAccess\bin\Debug\net6.0\Cinemas.DataAccess.pdb
+D:\tfg_net\Cinemas\Cinemas.DataAccess\bin\Debug\net6.0\Cinemas.Models.dll
+D:\tfg_net\Cinemas\Cinemas.DataAccess\bin\Debug\net6.0\Cinemas.Models.pdb
+D:\tfg_net\Cinemas\Cinemas.DataAccess\obj\Debug\net6.0\Cinemas.DataAccess.csproj.CopyComplete
+D:\tfg_net\Cinemas\Cinemas.DataAccess\obj\Debug\net6.0\Cinemas.DataAccess.dll
+D:\tfg_net\Cinemas\Cinemas.DataAccess\obj\Debug\net6.0\refint\Cinemas.DataAccess.dll
+D:\tfg_net\Cinemas\Cinemas.DataAccess\obj\Debug\net6.0\Cinemas.DataAccess.pdb
+D:\tfg_net\Cinemas\Cinemas.DataAccess\obj\Debug\net6.0\Cinemas.DataAccess.genruntimeconfig.cache
+D:\tfg_net\Cinemas\Cinemas.DataAccess\obj\Debug\net6.0\ref\Cinemas.DataAccess.dll

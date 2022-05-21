@@ -1,0 +1,12 @@
+D:\tfg_net\Cinemas\Cinemas.Models\bin\Debug\net6.0\Cinemas.Models.deps.json
+D:\tfg_net\Cinemas\Cinemas.Models\bin\Debug\net6.0\Cinemas.Models.dll
+D:\tfg_net\Cinemas\Cinemas.Models\bin\Debug\net6.0\Cinemas.Models.pdb
+D:\tfg_net\Cinemas\Cinemas.Models\obj\Debug\net6.0\Cinemas.Models.csproj.AssemblyReference.cache
+D:\tfg_net\Cinemas\Cinemas.Models\obj\Debug\net6.0\Cinemas.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\tfg_net\Cinemas\Cinemas.Models\obj\Debug\net6.0\Cinemas.Models.AssemblyInfoInputs.cache
+D:\tfg_net\Cinemas\Cinemas.Models\obj\Debug\net6.0\Cinemas.Models.AssemblyInfo.cs
+D:\tfg_net\Cinemas\Cinemas.Models\obj\Debug\net6.0\Cinemas.Models.csproj.CoreCompileInputs.cache
+D:\tfg_net\Cinemas\Cinemas.Models\obj\Debug\net6.0\Cinemas.Models.dll
+D:\tfg_net\Cinemas\Cinemas.Models\obj\Debug\net6.0\refint\Cinemas.Models.dll
+D:\tfg_net\Cinemas\Cinemas.Models\obj\Debug\net6.0\Cinemas.Models.pdb
+D:\tfg_net\Cinemas\Cinemas.Models\obj\Debug\net6.0\ref\Cinemas.Models.dll
