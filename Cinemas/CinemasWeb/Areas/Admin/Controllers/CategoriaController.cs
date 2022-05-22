@@ -1,20 +1,22 @@
 ﻿using Cinemas.DataAccess;
+using Cinemas.DataAccess.Repository.IRepository;
 using Cinemas.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CinemasWeb.Controllers
+namespace CinemasWeb.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoriaController : Controller
     {
-        private readonly AppDbContext _db;
-        public CategoriaController(AppDbContext db)
+        private readonly IUnitOfWork _unitOfWork;
+        public CategoriaController(IUnitOfWork unitOfWork)
         {
-            _db = db;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            IEnumerable<Categoria> objCatgoriaList = _db.Categorias;
+            IEnumerable<Categoria> objCatgoriaList = _unitOfWork.Category.GetAll();
             return View(objCatgoriaList);
         }
         //GET
@@ -28,14 +30,14 @@ namespace CinemasWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Categoria obj)
         {
-            if(obj.Name == obj.Orden.ToString())
+            if (obj.Name == obj.Orden.ToString())
             {
                 ModelState.AddModelError("CustomError", "El orden no puede ser igual al Nombre");
             }
             if (ModelState.IsValid)
             {
-                _db.Categorias.Add(obj);
-                _db.SaveChanges();
+                _unitOfWork.Category.Add(obj);
+                _unitOfWork.Save();
                 TempData["success"] = "Categoria creada correctamente";
                 return RedirectToAction("Index");
             }
@@ -49,10 +51,10 @@ namespace CinemasWeb.Controllers
         //GET
         public IActionResult Edit(int? id)
         {
-            if(id==null||id==0)
-            return NotFound();
+            if (id == null || id == 0)
+                return NotFound();
 
-            var categoriaFromDb = _db.Categorias.Find(id);
+            var categoriaFromDb = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
             if (categoriaFromDb == null)
                 return NotFound();
 
@@ -69,8 +71,8 @@ namespace CinemasWeb.Controllers
             }
             if (ModelState.IsValid)
             {
-                _db.Categorias.Update(obj);
-                _db.SaveChanges();
+                _unitOfWork.Category.Update(obj);
+                _unitOfWork.Save();
                 TempData["success"] = "Categoria editada correctamente";
                 return RedirectToAction("Index");
             }
@@ -84,7 +86,8 @@ namespace CinemasWeb.Controllers
             if (id == null || id == 0)
                 return NotFound();
 
-            var categoriaFromDb = _db.Categorias.Find(id);
+            var categoriaFromDb = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
+
             if (categoriaFromDb == null)
                 return NotFound();
 
@@ -95,14 +98,15 @@ namespace CinemasWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
         {
-            var obj = _db.Categorias.Find(id);
-            
-            if(obj == null) {
+            var obj = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
+
+            if (obj == null)
+            {
                 return NotFound();
             }
-            
-            _db.Categorias.Remove(obj);
-            _db.SaveChanges();
+
+            _unitOfWork.Category.Remove(obj);
+            _unitOfWork.Save();
             TempData["success"] = "Categoria eliminada correctamente";
             return RedirectToAction("Index");
         }

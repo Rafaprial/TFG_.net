@@ -10,5 +10,6 @@ namespace Cinemas.DataAccess
             
         }
        public DbSet<Categoria> Categorias { get; set; }
+       public DbSet<Pegi> Pegis { get; set; }
     }
 }
