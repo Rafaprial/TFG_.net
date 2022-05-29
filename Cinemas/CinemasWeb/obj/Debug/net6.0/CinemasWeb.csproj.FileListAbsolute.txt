@@ -557,3 +557,6 @@ D:\tfg_net\Cinemas\CinemasWeb\bin\Debug\net6.0\Cinemas.DataAccess.dll
 D:\tfg_net\Cinemas\CinemasWeb\bin\Debug\net6.0\Cinemas.Models.dll
 D:\tfg_net\Cinemas\CinemasWeb\bin\Debug\net6.0\Cinemas.DataAccess.pdb
 D:\tfg_net\Cinemas\CinemasWeb\bin\Debug\net6.0\Cinemas.Models.pdb
+D:\tfg_net\Cinemas\CinemasWeb\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\tfg_net\Cinemas\CinemasWeb\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\tfg_net\Cinemas\CinemasWeb\bin\Debug\net6.0\DataAnnotationsExtensions.dll

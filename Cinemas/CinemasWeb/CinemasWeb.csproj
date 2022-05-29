@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Cinemas.DataAccess\Cinemas.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\peliculas\" />
+  </ItemGroup>
+
 </Project>

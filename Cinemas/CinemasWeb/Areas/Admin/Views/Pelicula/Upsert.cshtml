@@ -1,0 +1,100 @@
+﻿@model Cinemas.Models.ViewmModels.PeliculaVM
+
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    <div class="border p-3 mt-4 row">
+        <div class="row pb-2">
+            <h2 class="text-primary">@(Model.pelicula.Id!=0?"Update":"Crear") Pelicula</h2>
+            <hr />
+        </div>
+@*        <div asp-validation-summary="All"></div>*@
+        <div class="mb-3">
+            <label asp-for="pelicula.Title">Titulo</label>
+            <input asp-for="pelicula.Title" class="form-control"/>
+            <span asp-validation-for="pelicula.Title" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="pelicula.Description">Descripcion</label>
+            <textarea asp-for="pelicula.Description" class="form-control" rows="4"></textarea>
+            <span asp-validation-for="pelicula.Description" class="text-danger"></span>
+        </div>        
+        <div class="mb-3 col-6">
+            <label asp-for="pelicula.Duration">Duracion</label>
+            <input asp-for="pelicula.Duration" class="form-control"/>
+            <span asp-validation-for="pelicula.Duration" class="text-danger"></span>
+        </div>        
+        <div class="mb-3 col-6">
+            <label asp-for="pelicula.Director">Director</label>
+            <input asp-for="pelicula.Director" class="form-control"/>
+            <span asp-validation-for="pelicula.Director" class="text-danger"></span>
+        </div>
+        <div class="mb-3 col-6">
+            <label asp-for="pelicula.ReleaseDate">Fecha de Estreno</label>
+            <input asp-for="pelicula.ReleaseDate" value="2001-01-01" min="1980-01-01" max="2040-12-31"  class="form-control"/>
+            <span asp-validation-for="pelicula.ReleaseDate" class="text-danger"></span>
+        </div>
+        <div class="mb-3 col-6">
+            <label asp-for="pelicula.Price">Precio por entrada</label>
+            <input asp-for="pelicula.Price" class="form-control"/>
+            <span asp-validation-for="pelicula.Price" class="text-danger"></span>
+        </div>
+@*        <div class="mb-3 col-6">
+            <label asp-for="pelicula.ImageUrl">Url de la portada</label>
+            <input asp-for="pelicula.ImageUrl" class="form-control"/>
+            <span asp-validation-for="pelicula.ImageUrl" class="text-danger"></span>
+        </div>*@
+		<div class="mb-3">
+			<label asp-for="pelicula.ImageUrl"></label>
+			<input type="file" id="uploadBox" name="file" class="form-control" />
+		</div>
+        <div class="mb-3 col-6">
+            <label asp-for="pelicula.CategoriaId">Categoria</label>
+            <select asp-for="pelicula.CategoriaId" asp-items="@Model.CategoryList" class="form-select">
+                <option disabled selected>--Categorias--</option>
+            </select>
+            <span asp-validation-for="pelicula.CategoriaId" class="text-danger"></span>
+        </div>        
+        <div class="mb-3 col-6">
+            <label asp-for="pelicula.PegiId">Pegis</label>
+            <select asp-for="pelicula.PegiId" asp-items="@Model.PegiList" class="form-select">
+                <option disabled selected>--Pegis--</option>
+            </select>
+            <span asp-validation-for="pelicula.PegiId" class="text-danger"></span>
+        </div>  
+            <br />
+            <div class="col-12">
+            @if(Model.pelicula.Id != 0)
+            {
+             <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+            }else{
+                <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:150px">Crear</button>
+            }
+
+        <a asp-controller="Pelicula" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Volver
+        </a>
+        </div>
+   </div>
+
+</form>
+
+@section Scripts{
+   @{
+    <partial name="_ValidationScriptsPartial"/>
+   } 
+   
+	<script>
+        function ValidateInput(){
+		if(document.getElementById("uploadBox").value==""){
+			Swal.fire({
+			  icon: 'error',
+			  title: 'Oops...',
+			  text: 'Por favor suba una imagen',
+			});
+			return false;
+		}
+		return true;
+	}
+    </script>
+}
+

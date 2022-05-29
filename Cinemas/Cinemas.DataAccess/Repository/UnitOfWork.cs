@@ -15,9 +15,11 @@ namespace Cinemas.DataAccess.Repository
             _db = db;
             Category = new CategoryRepository(_db);
             Pegi = new PegiRepository(_db);
+            Pelicula = new PeliculaRepository(_db);
         }
         public ICategoryRepository Category { get; private set; }
         public IPegiRepository Pegi { get; private set; }
+        public IPeliculaRepository Pelicula { get; private set; }
 
         public void Save()
         {

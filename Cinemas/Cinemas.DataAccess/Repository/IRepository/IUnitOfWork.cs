@@ -10,6 +10,7 @@ namespace Cinemas.DataAccess.Repository.IRepository
     {
         ICategoryRepository Category { get; }
         IPegiRepository Pegi { get; }
+        IPeliculaRepository Pelicula { get; }
         void Save();
     }
 }

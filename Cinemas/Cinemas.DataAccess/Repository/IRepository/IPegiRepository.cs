@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Cinemas.DataAccess.Repository.IRepository
 {
-    public interface IPegiRepository : IRepository<Pegi>
+    public interface IPeliculaRepository : IRepository<Pelicula>
     {
-        void Update(Pegi obj);
+        void Update(Pelicula obj);
 
     }
 }
