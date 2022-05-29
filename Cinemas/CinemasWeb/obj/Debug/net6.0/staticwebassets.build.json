@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "v0Mo5tJlH0f+W9xX6qYbMJ4ogdIh0viQvwI0mKm9oic=",
+  "Hash": "G6/exmkKt2jQlRL8NjfPJqJqc/CZKSy5T1jeyWuRKUI=",
   "Source": "CinemasWeb",
   "BasePath": "_content/CinemasWeb",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\peliculas\\9cb8e123-8da8-402c-98bb-3c4ed7e1874b.jpg"
+    },
+    {
+      "Identity": "D:\\tfg_net\\Cinemas\\CinemasWeb\\wwwroot\\images\\peliculas\\ace638a3-7083-49cb-a737-3af27ead4007.jpg",
+      "SourceId": "CinemasWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\tfg_net\\Cinemas\\CinemasWeb\\wwwroot\\",
+      "BasePath": "_content/CinemasWeb",
+      "RelativePath": "images/peliculas/ace638a3-7083-49cb-a737-3af27ead4007.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\peliculas\\ace638a3-7083-49cb-a737-3af27ead4007.jpg"
     },
     {
       "Identity": "D:\\tfg_net\\Cinemas\\CinemasWeb\\wwwroot\\images\\peliculas\\c58ded8d-b3d9-4b1c-9c6f-676e5a024b46.jpg",
