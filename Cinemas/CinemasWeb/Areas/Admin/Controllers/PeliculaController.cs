@@ -59,21 +59,22 @@ namespace CinemasWeb.Areas.Admin.Controllers;
 
 /*            return View(peliculaVM); INACCESIBLE*/
         }
-        //Post
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Upsert(PeliculaVM obj, IFormFile file)
+    //Post
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Upsert(PeliculaVM obj, IFormFile? file)
+    {
+
+        if (ModelState.IsValid)
         {
-
-            if (ModelState.IsValid)
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            if (file != null)
             {
-                string wwwRootPath = _hostEnvironment.WebRootPath;
-                if(file != null) {
-                    string fileName = Guid.NewGuid().ToString();
-                    var upload = Path.Combine(wwwRootPath, @"images/peliculas");
-                    var extension = Path.GetExtension(file.FileName);
+                string fileName = Guid.NewGuid().ToString();
+                var upload = Path.Combine(wwwRootPath, @"images/peliculas");
+                var extension = Path.GetExtension(file.FileName);
 
-                    if(obj.pelicula.ImageUrl != null)
+                if (obj.pelicula.ImageUrl != null)
                 {
                     var oldImage = Path.Combine(wwwRootPath, obj.pelicula.ImageUrl.Trim('\\'));
                     if (System.IO.File.Exists(oldImage))
@@ -82,13 +83,13 @@ namespace CinemasWeb.Areas.Admin.Controllers;
                     }
                 }
 
-                    using (var fileStreams = new FileStream(Path.Combine(upload, fileName + extension), FileMode.Create))
-                    {
-                        file.CopyTo(fileStreams);
-                    }
-                    obj.pelicula.ImageUrl = @"\images\peliculas" + fileName + extension;
+                using (var fileStreams = new FileStream(Path.Combine(upload, fileName + extension), FileMode.Create))
+                {
+                    file.CopyTo(fileStreams);
                 }
-                if(obj.pelicula.Id == 0)
+                obj.pelicula.ImageUrl = @"\images\peliculas\" + fileName + extension;
+            }
+            if (obj.pelicula.Id == 0)
             {
                 _unitOfWork.Pelicula.Add(obj.pelicula);
             }
@@ -96,46 +97,48 @@ namespace CinemasWeb.Areas.Admin.Controllers;
             {
                 _unitOfWork.Pelicula.Update(obj.pelicula);
             }
-                _unitOfWork.Pelicula.Add(obj.pelicula);
-                _unitOfWork.Save();
-                TempData["success"] = "Pelicula Añadida correctamente";
-                return RedirectToAction("Index");
-            }
 
-            return View(obj);
-        }
-        //DELETE
-        //GET
-        public IActionResult Delete(int? id)
-        {
-            if (id == null || id == 0)
-                return NotFound();
-
-            var PeliculaFromDb = _unitOfWork.Pelicula.GetFirstOrDefault(u => u.Id == id);
-
-            if (PeliculaFromDb == null)
-                return NotFound();
-
-            return View(PeliculaFromDb);
-        }
-        //Post
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public IActionResult DeletePOST(int? id)
-        {
-            var obj = _unitOfWork.Pelicula.GetFirstOrDefault(u => u.Id == id);
-
-            if (obj == null)
-            {
-                return NotFound();
-            }
-
-            _unitOfWork.Pelicula.Remove(obj);
             _unitOfWork.Save();
-            TempData["success"] = "Pelicula eliminada correctamente";
+            TempData["success"] = "Pelicula Añadida correctamente";
             return RedirectToAction("Index");
         }
-    
+
+        return View(obj);
+    }
+
+
+    //DELETE
+    //GET
+    /*        public IActionResult Delete(int? id)
+            {
+                if (id == null || id == 0)
+                    return NotFound();
+
+                var PeliculaFromDb = _unitOfWork.Pelicula.GetFirstOrDefault(u => u.Id == id);
+
+                if (PeliculaFromDb == null)
+                    return NotFound();
+
+                return View(PeliculaFromDb);
+            }
+            //Post
+            [HttpPost, ActionName("Delete")]
+            [ValidateAntiForgeryToken]
+            public IActionResult DeletePOST(int? id)
+            {
+                var obj = _unitOfWork.Pelicula.GetFirstOrDefault(u => u.Id == id);
+
+                if (obj == null)
+                {
+                    return NotFound();
+                }
+
+                _unitOfWork.Pelicula.Remove(obj);
+                _unitOfWork.Save();
+                TempData["success"] = "Pelicula eliminada correctamente";
+                return RedirectToAction("Index");
+            }*/
+
 
     #region APIS
     [HttpGet]

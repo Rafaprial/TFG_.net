@@ -24,7 +24,7 @@ namespace Cinemas.DataAccess.Repository
         public void Update(Pelicula obj)
         {
             var objFromDb = _db.Peliculas.FirstOrDefault(u=>u.Id == obj.Id);
-            if(objFromDb == null)
+            if(objFromDb != null)
             {
                 objFromDb.Title = obj.Title;
                 objFromDb.Description = obj.Description;
