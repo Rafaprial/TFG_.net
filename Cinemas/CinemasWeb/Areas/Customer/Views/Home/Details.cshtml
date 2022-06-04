@@ -1,0 +1,62 @@
+﻿@model Carrito;
+
+
+<form method="post">
+    <input hidden asp-for="PeliculaId" />
+        <div class="card container pt-4">
+            <div class="card-header bg-primary text-light ml-0  row ">
+                <div class="col-12 col-md-6">
+                    <h1 class="text-white-50">@Model.Pelicula.Title</h1>
+                    <p class="text-warning">by @Model.Pelicula.Director</p>
+                </div>
+                <div class="col-12 col-md-6 text-end pt-4">
+                    <span class="badge bg-info pt-2" style="height:30px;">@Model.Pelicula.Pegi.Name</span>
+                    <span class="badge bg-warning pt-2" style="height:30px;">@Model.Pelicula.Categoria.Name</span>
+                </div>
+            </div>
+            <div class="card-body row container">
+                <div class="container rounded p-2">
+                    <div class="row">
+                        <div class="col-8 col-lg-8">
+
+                            <div class="row pl-2">
+                                <h5 class="text-muted">Duracion : @Model.Pelicula.Duration min</h5>
+                            </div>                            
+                            <div class="row pl-2">
+                                <h5 class="text-muted">Año de Estreno : @Model.Pelicula.ReleaseDate.Year</h5>
+                            </div>
+                            <div class="row text-center pl-2" style="color:maroon; font-weight:bold; border-radius:20px;">
+                                <div class="p-1 col-2 bg-secondary">
+                                    <div>Precio</div>
+                                </div>
+                                <div class="p-1 col-2 bg-secondary">
+                                    <div>@Model.Pelicula.Price.ToString("c")</div>
+                                </div>
+                            </div>
+                            <div class="row mt-3 mb-3 pl-2">
+                                <p class="text-secondary">@Html.Raw(Model.Pelicula.Description)</p>
+                            </div>
+                            <div class="row pl-2">
+                                <div class="col-10 text-primary"><h4>Numero de entradas</h4></div>
+                                </br>
+                                <div class="col-10"><input asp-for="Count" class="form-control"  /></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 offset-lg-1 text-center">
+                            <img src="@Model.Pelicula.ImageUrl" width="80%" class="rounded" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-12 col-md-6 pb-1">
+                        <a class="btn btn-success form-control " style="height:50px;" asp-action="Index">Volver</a>
+                    </div>
+                    <div class="col-12 col-md-6 pb-1">
+                        <button type="submit" value="Añadir al carrito" class="btn btn-primary form-control" style="height:50px;">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>

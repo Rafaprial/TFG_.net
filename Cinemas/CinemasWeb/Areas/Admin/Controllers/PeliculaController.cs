@@ -76,7 +76,7 @@ namespace CinemasWeb.Areas.Admin.Controllers;
 
                 if (obj.pelicula.ImageUrl != null)
                 {
-                    var oldImage = Path.Combine(wwwRootPath, obj.pelicula.ImageUrl.Trim('\\'));
+                    var oldImage = Path.Combine(wwwRootPath, obj.pelicula.ImageUrl.TrimStart('\\'));
                     if (System.IO.File.Exists(oldImage))
                     {
                         System.IO.File.Delete(oldImage);
@@ -107,45 +107,36 @@ namespace CinemasWeb.Areas.Admin.Controllers;
     }
 
 
-    //DELETE
-    //GET
-    /*        public IActionResult Delete(int? id)
-            {
-                if (id == null || id == 0)
-                    return NotFound();
-
-                var PeliculaFromDb = _unitOfWork.Pelicula.GetFirstOrDefault(u => u.Id == id);
-
-                if (PeliculaFromDb == null)
-                    return NotFound();
-
-                return View(PeliculaFromDb);
-            }
-            //Post
-            [HttpPost, ActionName("Delete")]
-            [ValidateAntiForgeryToken]
-            public IActionResult DeletePOST(int? id)
-            {
-                var obj = _unitOfWork.Pelicula.GetFirstOrDefault(u => u.Id == id);
-
-                if (obj == null)
-                {
-                    return NotFound();
-                }
-
-                _unitOfWork.Pelicula.Remove(obj);
-                _unitOfWork.Save();
-                TempData["success"] = "Pelicula eliminada correctamente";
-                return RedirectToAction("Index");
-            }*/
-
 
     #region APIS
+
     [HttpGet]
     public IActionResult GetAll()
     {
         var peliculaList = _unitOfWork.Pelicula.GetAll(includeProperties: "Categoria,Pegi");
         return Json(new { data = peliculaList });
+    }
+
+    //Post
+    [HttpDelete]
+    public IActionResult Delete(int? id)
+    {
+        var obj = _unitOfWork.Pelicula.GetFirstOrDefault(u => u.Id == id);
+
+        if (obj == null)
+        {
+            return Json(new { success = false, message = "Error al borrar" });
+        }
+        var oldImage = Path.Combine(_hostEnvironment.WebRootPath, obj.ImageUrl.TrimStart('\\'));
+        if (System.IO.File.Exists(oldImage))
+        {
+            System.IO.File.Delete(oldImage);
+        }
+
+        _unitOfWork.Pelicula.Remove(obj);
+        _unitOfWork.Save();
+        return Json(new { success = true, message = "Pelicula Borrada Correctamente" });
+
     }
     #endregion
 }
